@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Founder | Frameworks PTY Ltd</title>
+<link rel="icon" type="image/png" href="Logo.png">
+<style>
+:root{--green:#07571e;--dark:#043b15;--light:#0b7a2a;--white:#fff;--shadow:0 12px 35px rgba(0,0,0,.25);--radius:18px}
+*{box-sizing:border-box} html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:18px;line-height:1.6;color:#fff;background:url("greengrass.jpg") center center/cover fixed no-repeat}
+header{position:sticky;top:0;z-index:1000;min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:12px clamp(18px,4vw,60px);background:rgba(4,59,21,.78);border-bottom:1px solid rgba(255,255,255,.18);box-shadow:0 8px 25px rgba(0,0,0,.18);backdrop-filter:blur(12px)}
+.brand{display:flex;align-items:center;gap:14px}.brand img{width:70px;height:70px;object-fit:contain}.brand h1{margin:0;font-size:clamp(1.15rem,2.5vw,1.65rem)}
+nav ul{list-style:none;display:flex;gap:5px;margin:0;padding:0}nav a{display:block;color:#fff;text-decoration:none;padding:10px 15px;border-radius:10px;font-weight:650}nav a:hover{background:rgba(255,255,255,.16)}
+section{padding:70px 20px}.founder{min-height:700px;display:flex;flex-direction:column;justify-content:center}
+.header{text-align:center;max-width:900px;margin:0 auto 40px}.header h2,.slideshow h2{font-size:clamp(2.2rem,5vw,3.6rem);margin:0 0 10px;text-shadow:0 4px 15px rgba(0,0,0,.7)}
+.profile{width:min(1050px,100%);margin:auto;display:grid;grid-template-columns:minmax(280px,380px) 1fr;gap:45px;align-items:center;padding:35px;background:rgba(4,59,21,.84);border:1px solid rgba(255,255,255,.17);border-radius:var(--radius);box-shadow:var(--shadow);backdrop-filter:blur(10px)}
+.photo{margin-top:-10px; width:300px;flex-shrink:0 }.photo img{width:130%;max-width:400px;aspect-ratio:0;object-fit:fill;border-radius:50px;border:5px solid rgba(255,255,255,.65);box-shadow:var(--shadow)}
+
+.bio h3{
+    margin-top:0;
+    font-size:1.9rem
+}
+.bio p{
+    color:rgba(255,255,255,.94)
+}
+.slideshow{position:relative;min-height:700px;padding:80px 30px;text-align:center;overflow:hidden;isolation:isolate}.slideshow::before{display:none;}.slideshow-title{max-width:900px;margin:0 auto 45px}.slideshow-title .eyebrow{margin:0;color:#b7e4c7;font-size:16px;font-weight:800;letter-spacing:6px;text-transform:uppercase}.slideshow-title h2{margin:5px 0 12px;font-size:clamp(2.4rem,5vw,3.8rem);color:#fff;text-shadow:0 0 18px rgba(183,228,199,.55)}.slideshow-title p{margin:0;color:rgba(255,255,255,.88)}.carousel-container{position:relative;width:min(1400px,100%);margin:0 auto;display:flex;align-items:center}.carousel-window{width:100%;overflow:hidden;padding:12px 8px 20px}.carousel-track{display:flex;gap:24px;transition:transform .65s ease;will-change:transform}.founder-card{position:relative;flex:0 0 calc((100% - 48px)/3);height:440px;overflow:hidden;border:2px solid #8ee7ad;border-radius:20px;background:#06230f;box-shadow:0 0 12px rgba(142,231,173,.65),0 0 30px rgba(142,231,173,.22)}.founder-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}.founder-card:hover img{transform:scale(1.05)}.founder-card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.92),rgba(0,0,0,.05) 68%);pointer-events:none}.card-overlay{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:28px 24px;text-align:left}.card-overlay h3{margin:0 0 6px;color:#fff;font-size:1.55rem}.card-overlay p{margin:0;color:#c9f0d6;font-size:1rem;line-height:1.5}.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:52px;height:52px;border:2px solid #8ee7ad;border-radius:50%;background:rgba(4,59,21,.92);color:#fff;font-size:25px;line-height:1;cursor:pointer;box-shadow:0 0 14px rgba(142,231,173,.65);transition:.25s ease}.carousel-btn:hover{background:#8ee7ad;color:#043b15;transform:translateY(-50%) scale(1.08)}.carousel-btn.prev{left:-12px}.carousel-btn.next{right:-12px}.carousel-dots{margin-top:22px;text-align:center}.carousel-dot{display:inline-block;width:11px;height:11px;margin:0 5px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:.25s ease}.carousel-dot.active{background:#8ee7ad;box-shadow:0 0 10px rgba(142,231,173,.9);transform:scale(1.15)}@media(max-width:1000px){.founder-card{flex-basis:calc((100% - 24px)/2)}}@media(max-width:800px){.slideshow{min-height:620px;padding:60px 20px}.founder-card{flex-basis:100%;height:430px}.carousel-track{gap:0}.carousel-window{padding-left:0;padding-right:0}.carousel-btn.prev{left:8px}.carousel-btn.next{right:8px}}
+
+footer{padding:25px 20px;text-align:center;background:var(--dark)}footer p{margin:0}
+@media(max-width:800px){header{position:relative;flex-direction:column;padding:15px}.brand{justify-content:center}nav ul{flex-wrap:wrap;justify-content:center}.profile{grid-template-columns:1fr;padding:25px}.slide-area{height:260px}}
+</style>
+</head>
+<body>
+<header>
+<div class="brand"><img src="Logo.png" alt="Frameworks PTY Ltd logo"><h1>Frameworks PTY Ltd</h1></div>
+<nav><ul>
+<li><a href="Frameworks_final_backgrounds.htm">Home</a></li>
+<li><a href="Frameworks_final_backgrounds.htm">About</a></li>
+<li><a href="Frameworks_final_backgrounds.htm">Services</a></li>
+<li><a href="Frameworks_final_backgrounds.htm">Contact</a></li>
+</ul></nav>
+</header>
+<main>
+<section class="founder">
+<div class="header"><h2>Meet the Founder</h2><p><strong>Learn more about the person behind Frameworks PTY Ltd.</strong></p></div>
+<div class="profile">
+<div class="photo">
+<img src="founder.jpg" alt="Photo of the founder" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+<h4><strong>Founder/Chief Executive Officer</strong><br><strong>Frameworks PTY Ltd</strong></h4>
+<p></p>
+<p></p>
+<p><strong>	Career Snapshot: </strong></p>
+<p>●	🏫Matriculated at CBC St John’s High School</p>
+<p>●	🎓 Sport Management Student</p>
+<p>●	📜 UEFA C Licence Headcoach Candidate</p>
+<p>●	⚽ Former Semi-Professional Goalkeeper</p>
+<p>●	🥅 Goalkeeper Coach</p>
+<p>●	🏟️Football Manager </p>
+<p><strong>	Career Achievements: </strong></p>
+<p>●	⚽ Northern Suburbs 1st Division League Title 2026 </p>
+<p>●	⚽ Grand Challenge Trophy Winner 2026 </p>
+<p>(Newmans Football Club)</p>
+
+<p><strong>Co-Founder: </strong></p><p>Makhuze Batana</p>
+</div>
+<div class="bio">
+<h3>Luthando Velleman</h3>
+<p><strong>About the founder</strong></p>
+<p>My name is Luthando Velleman, and I founded Frameworks PTY Ltd with a simple belief: every athlete deserves a safe, reliable surface to perform on.
+Born in Johannesburg on 30 September 2002, my journey in sport has shaped both my career and my purpose. After matriculating from CBC St John’s High School in Parklands in 2020, I pursued football professionally, earning the opportunity to play as a goalkeeper for Club Deportivo San Pedro Mártir in Las Palmas de Gran Canaria, Spain. I have also represented various clubs across Cape Town and worked as a goalkeeper coach.</p>
+<p><strong>From Player to Founder</strong></p> 
+My professional development has not been limited to sport. Working as a delivery driver for Butlers Pizza taught me discipline, accountability, punctuality, and the importance of taking pride in every task, regardless of its size. Those values remain central to the way I lead Frameworks today.
+Football taught me a lesson that extends far beyond the game itself: performance begins with the environment.</p> <p>A match can be influenced by the quality of the playing surface, and I have experienced first-hand the difference between facilities that support athletes and those that put them at risk. For a goalkeeper, an uneven field can cost a goal. For a player, it can cost an entire season.
+I am currently studying Sport Management at Northlink College while completing my UEFA C Licence Coaching qualification through the Scottish Football Association. Through both education and practical experience, I continue to build the expertise required to raise the standard of sporting facilities across South Africa.
+
+</div>
+</div>
+</section>
+<section class="slideshow" id="founder-slideshow"><div class="slideshow-title"><h2 class="eyebrow"></h1><h2>Meet Our Founder</h2><h4><strong>The vision, experience and passion behind Frameworks PTY Ltd.</strong></L></h4></div><div class="carousel-container"><button class="carousel-btn prev" type="button" aria-label="Previous slide" onclick="moveFounderSlide(-1)">&#10094;</button><div class="carousel-window"><div class="carousel-track" id="founderCarouselTrack"><article class="founder-card"><img src="founder.jpg" alt="Photo of the founder"><div class="card-overlay"><h3>The Founder</h3><p>Luthando Velleman</p></div></article><article class="founder-card"><img src="onfield.jpg" alt="Founder on the field"><div class="card-overlay"><h3>On the Field</h3><p>Discipline. Focus. Performance.</p></div></article><article class="founder-card"><img src="experience.jpg" alt="Founder and football"><div class="card-overlay"><h3>Football Experience</h3><p>Former professional goalkeeper and goalkeeper coach.</p></div></article><article class="founder-card"><img src="coaching.jpg" alt="Founder coaching"><div class="card-overlay"><h3>Coaching &amp; Leadership</h3><p>Developing players and creating better sporting environments.</p></div></article><article class="founder-card"><img src="growth.jpg" alt="Founder education and growth"><div class="card-overlay"><h3>Education &amp; Growth</h3><p>Sport Management student and UEFA C Licence Headcoach Candidate.</p></div></article></div></div><button class="carousel-btn next" type="button" aria-label="Next slide" onclick="moveFounderSlide(1)">&#10095;</button></div><div class="carousel-dots" id="founderCarouselDots" aria-label="Slideshow navigation"><span class="carousel-dot active" onclick="goToFounderSlide(0)"></span><span class="carousel-dot" onclick="goToFounderSlide(1)"></span><span class="carousel-dot" onclick="goToFounderSlide(2)"></span><span class="carousel-dot" onclick="goToFounderSlide(3)"></span><span class="carousel-dot" onclick="goToFounderSlide(4)"></span></div></section><script>(function(){const track=document.getElementById("founderCarouselTrack"),dots=document.querySelectorAll("#founderCarouselDots .carousel-dot"),cards=document.querySelectorAll("#founderCarouselTrack .founder-card"),win=document.querySelector("#founder-slideshow .carousel-window");let current=0,timer;function visible(){return innerWidth<=800?1:innerWidth<=1000?2:3}function max(){return Math.max(0,cards.length-visible())}function update(){const gap=innerWidth<=800?0:24,w=cards[0]?cards[0].getBoundingClientRect().width:0;track.style.transform=`translateX(-${current*(w+gap)}px)`;dots.forEach((d,i)=>d.classList.toggle("active",i===current))}window.moveFounderSlide=d=>{current+=d;if(current>max())current=0;if(current<0)current=max();update()};window.goToFounderSlide=i=>{current=Math.min(i,max());update()};function start(){clearInterval(timer);timer=setInterval(()=>moveFounderSlide(1),4000)}addEventListener("resize",()=>{current=Math.min(current,max());update()});win.addEventListener("mouseenter",()=>clearInterval(timer));win.addEventListener("mouseleave",start);update();start()})();</script>
+</main>
+<footer><p>© 2026 Frameworks PTY Ltd. All Rights Reserved. Designed and Created by justindeanmars@gmail.com</p></footer>
+</body>
+</html>

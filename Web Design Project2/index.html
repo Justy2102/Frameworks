@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Frameworks PTY Ltd - professional web design, IT support and cybersecurity services.">
+    <meta name="theme-color" content="#07571E">
+    <title>Frameworks PTY Ltd</title>
+    <link rel="icon" type = "image/png" href ="Logo.png">
+
+    <style>
+:root {
+    --green: #07571e;
+    --green-dark: #043b15;
+    --green-light: #0b7a2a;
+    --white: #ffffff;
+    --glass: rgba(255, 255, 255, 0.12);
+    --glass-dark: rgba(4, 59, 21, 0.88);
+    --shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    --radius: 18px;
+
+    /* Background images for the About and Services containers */
+    --about-bg: url("newfield.jpg");
+    --services-bg: url("Field.jpg");
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #fff;
+    background: #111;
+}
+
+img {
+    max-width: 100%;
+}
+
+.heading {
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 12px clamp(18px, 4vw, 60px);
+    background:
+        linear-gradient(135deg, rgba(4,59,21,.92), rgba(7,87,30,.72)),
+        url("plain-darkgreen.jpg") center/cover no-repeat;
+    border-bottom: 1px solid rgba(255,255,255,.18);
+    box-shadow: 0 8px 25px rgba(0,0,0,.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+}
+
+.brand img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin: 0;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,.3));
+}
+
+.brand h1 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(1.15rem, 2.5vw, 1.65rem);
+    line-height: 1.1;
+    letter-spacing: .3px;
+    text-shadow: 0 2px 8px rgba(0,0,0,.5);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    position: relative;
+}
+
+nav a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-weight: 650;
+    transition: background .25s ease, transform .25s ease;
+}
+
+nav > ul > li > a::after {
+    content: "⌄";
+    display: inline-block;
+    margin-left: 7px;
+    font-size: .85em;
+    opacity: .8;
+    transition: transform .25s ease;
+}
+
+nav > ul > li > a[href="home.html"]::after,
+nav > ul > li > a[href="about.html"]::after,
+nav > ul > li > a[href="services.html"]::after,
+nav > ul > li > a[href="contact.html"]::after {
+    content: "⌄";
+}
+
+nav a:hover,
+nav a:focus-visible {
+    background: rgba(255,255,255,.16);
+    outline: none;
+    transform: translateY(-1px);
+}
+
+.dropdown-menu {
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: auto;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    min-width: 150px;
+    padding: 8px;
+    margin: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    background: rgba(4, 59, 21, .96);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    transform: translateY(-8px);
+    transition: opacity .22s ease, transform .22s ease, visibility .22s;
+}
+
+.dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 15px;
+    width: 9px;
+    height: 12px;
+    background: rgba(4,59,21,.96);
+    transform: rotate(45deg);
+}
+
+.dropdown-menu li {
+    width: 100%;
+}
+
+.dropdown-menu a {
+    padding: 11px 9px;
+    text-align: left;
+    font-size: .95rem;
+    text-shadow: none;
+    border-radius: 9px;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu a:focus-visible {
+    background: rgba(255,255,255,.14);
+    transform: translateX(3px);
+}
+
+.dropdown:hover > .dropdown-menu,
+.dropdown:focus-within > .dropdown-menu {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+section {
+    position: relative;
+    isolation: isolate;
+    min-height: 625px;
+    padding: 56px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    display: block;
+}
+
+section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(circle at 50% 10%, rgba(255,255,255,.14), transparent 42%); 
+    pointer-events: none;
+}
+
+#home {
+    position: relative;
+    min-height: clamp(620px, 88vh, 900px);
+    justify-content: center;
+    overflow: hidden;
+    background: #0b2413;
+}
+
+/* HERO BACKGROUND SLIDESHOW */
+#home::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: homeHeroSlides 12s infinite;
+    
+}
+
+/* Dark overlay keeps the hero text readable */
+#home::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(90deg, rgba(0, 0, 0, .68) 0%, rgba(0, 0, 0, .35) 55%, rgba(0, 0, 0, .55) 100%),
+        linear-gradient(180deg, rgba(4, 59, 21, .22), rgba(0, 0, 0, .42));
+}
+
+/* 
+   The same image is displayed for each keyframe interval.
+   Replace these filenames with your own hero images if required.
+*/
+@keyframes homeHeroSlides {
+    0%, 24% {
+        background-image: url('wallpaper.jpg');
+        transform: scale(1.06);
+    }
+
+    25%, 49% {
+        background-image: url('heroslides2.jpg');
+        transform: scale(1.10);
+    }
+
+    50%, 74% {
+        background-image: url('wallpaper.jpg');
+        transform: scale(1.06);
+    }
+
+    75%, 100% {
+        background-image: url('soccerfield.jpg');
+        transform: scale(1.10);
+    }
+}
+
+/* Hero content animation */
+#home h2,
+#home p {
+    position: relative;
+    z-index: 3;
+}
+
+#home h2 {
+    font-size: clamp(2.5rem, 7vw, 5.2rem);
+    letter-spacing: -1px;
+    animation: heroTextIn 1s ease-out both;
+}
+
+#home p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    animation: heroTextIn 1.2s ease-out both;
+}
+
+#home p + p {
+    animation-delay: .15s;
+}
+
+@keyframes heroTextIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Small slideshow indicators */
+.hero-dots {
+    position: absolute;
+    z-index: 2;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 9px;
+}
+
+.hero-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.55);
+    box-shadow: 0 2px 7px rgba(0,0,0,.35);
+    animation: heroDot 24s infinite;
+}
+
+.hero-dots span:nth-child(2) {
+    animation-delay: 6s;
+}
+
+.hero-dots span:nth-child(3) {
+    animation-delay: 10s;
+}
+
+.hero-dots span:nth-child(4) {
+    animation-delay: 14s;
+}
+
+@keyframes heroDot {
+    0%, 23% {
+        background: rgba(255,255,255,.95);
+        transform: scale(1.25);
+    }
+    24%, 100% {
+        background: rgba(255,255,255,.45);
+        transform: scale(1);
+    }
+}
+
+#about,
+#services,
+#contact {
+    background-image: url("greengrass.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.about-container {
+    width: min(1100px, 100%);
+    margin: 35px auto 0;
+    display: grid;
+}    
+section h2 {
+    margin: 0 0 15px;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.1;
+    color: rgba(255,255,255,.92);
+    text-shadow: 0 4px 15px #000;
+}
+
+section p {
+    max-width: 625px;
+    margin: 10px auto;
+    color: rgba(255,255,255,.92);
+    text-shadow: 0 2px 7px rgba(0, 0, 0);
+}
+
+.services-container {
+    width: min(1100px, 100%);
+    margin: 35px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.about {
+    min-height: 480px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background:
+        linear-gradient(rgba(4, 59, 21, .68), rgba(4, 59, 21, .68)),
+        var(--about-bg) center/cover no-repeat;
+    border: 1px solid rgba(255,255,255,.17);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+.service {
+    min-height: 480px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background:
+        linear-gradient(rgba(4, 59, 21, .68), rgba(4, 59, 21, .68)),
+        var(--services-bg) center/cover no-repeat;
+    border: 1px solid rgba(255,255,255,.17);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: transform .3s ease, box-shadow .3s ease, background .3s ease;
+    animation: serviceCardMove 5s ease-in-out infinite alternate;
+}
+
+.service:nth-child(2) { animation-delay: .5s; }
+.service:nth-child(3) { animation-delay: 1s; }
+
+.about-card {
+    background:
+        linear-gradient(rgba(4, 59, 21, .68), rgba(4, 59, 21, .68)),
+        var(--about-bg) center/cover no-repeat;
+}
+
+
+.service:hover {
+    transform: translateY(-10px) scale(1.02);
+    background:
+        linear-gradient(rgba(7, 87, 30, .78), rgba(7, 87, 30, .78)),
+        var(--services-bg) center/cover no-repeat;
+    box-shadow: 0 18px 45px rgba(0,0,0,.32);
+}
+
+@keyframes serviceCardMove {
+    from { translate: 0 0; }
+    to   { translate: 0 -10px; }
+}
+
+.service h3 {
+    margin-top: 0;
+    font-size: 1.35rem;
+    color: rgba(255,255,255,.92);
+    text-shadow:0 3px 11px rgba(0,0,0);
+}
+
+.service p {
+    color: rgba(255,255,255,.92);
+    text-shadow: none;
+}
+
+form {
+    width: min(560px, 100%);
+    margin: 30px auto 0;
+    padding: 28px;
+    background: rgba(4,59,21,.78);
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+input,
+textarea {
+    width: 100%;
+    margin: 0 0 14px;
+    padding: 14px 16px;
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 10px;
+    background: rgba(255,255,255,.95);
+    color: #1b1b1b;
+    font: inherit;
+    outline: none;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #7ddf9a;
+    box-shadow: 0 0 0 4px rgba(125,223,154,.18);
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+button {
+    width: 100%;
+    padding: 14px 22px;
+    border: 0;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--green), var(--green-light));
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(0,0,0,.2);
+    transition: transform .2s ease, filter .2s ease;
+}
+
+button:hover,
+button:focus-visible {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+footer {
+    padding: 25px 20px;
+    text-align: center;
+    background: var(--green-dark);
+    color: rgba(255,255,255,.88);
+}
+
+footer p {
+    margin: 0;
+}
+
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+/* Mobile */
+@media (max-width: 800px) {
+    .heading {
+        position: relative;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .brand {
+        justify-content: center;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav > ul > li > a {
+        padding: 9px 11px;
+        font-size: .9rem;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -8px);
+        min-width: 205px;
+    }
+
+    .dropdown:hover > .dropdown-menu,
+    .dropdown:focus-within > .dropdown-menu {
+        transform: translate(-50%, 0);
+    }
+
+    .dropdown-menu::before {
+        left: 50%;
+        margin-left: -6px;
+    }
+
+    .services-container {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+    }
+
+    section {
+        min-height: 700px;
+    }
+
+    #services {
+        background-size: cover;
+        animation-duration: 24s;
+    }
+
+    #home {
+        min-height: 650px;
+    }
+
+    #home::before {
+        animation-duration: 24s;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand h1 {
+        font-size: 1.1rem;
+    }
+
+    .brand img {
+        width: 46px;
+        height: 46px;
+    }
+
+    nav ul {
+        gap: 2px;
+    }
+
+    nav > ul > li > a {
+        padding: 8px 9px;
+        font-size: .82rem;
+    }
+
+    section {
+        padding: 70px 15px;
+    }
+
+    form {
+        padding: 20px;
+    }
+}
+
+/* Accessibility / reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+    
+/* Interactive section/dropdown targets */
+html {
+    scroll-padding-top: 100px;
+}
+
+.dropdown-menu a {
+    cursor: pointer;
+}
+
+section:target,
+.service:target {
+    scroll-margin-top: 100px;
+}
+
+.service:target {
+    outline: 3px solid rgba(255,255,255,.75);
+    outline-offset: 4px;
+    transform: translateY(-10px) scale(1.02);
+}
+
+.dropdown-target {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="heading">
+
+
+        <div class="brand">
+            <img src="Logo.png" alt="My Logo">
+
+            <h1>Frameworks PTY Ltd</h1>
+        </div>
+        
+        <nav>
+            <ul>
+                <a href="#home">Home</a>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle">About</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="founder.html">Founder</a></li>
+                    </ul>
+                </li>
+
+                
+                <a href="#services">Services</a>
+                  
+
+
+                <a href="#contact">Contact</a>
+                    
+            </ul>
+        </nav>
+
+    </header>
+
+
+    <!-- HOME -->
+
+    <section id="home">
+
+        <h2>Frameworks PTY Ltd</h2>
+
+        <p>
+            "Every player deserves a field they can trust!"
+        </p>
+
+        <div class="hero-dots" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+        <div class="about-container">
+            <div id="about-team" class="dropdown-target"></div>
+            <div class="service about-card" id="about-us" tabindex="0">
+
+                <h2>About Us</h2>
+                <h3>Executive Summary</h3>
+                <p>
+                    Frameworks Pty Ltd is a South African sports infrastructure company founded by Luthando
+                    Velleman. We specialize in the development, restoration, and maintenance of sports
+                    facilities for High Schools, TVET Colleges, Universities, and Rural Communities across South
+                    Africa.
+                    We believe a proper field is not a luxury. It is where discipline is learned, talent is
+                    discovered, and communities come together
+                </p>
+                
+                <p>
+                    We create safe, professional, and match-ready enviroments where athletes can train, compete, and pursue their ambitions with confidence.
+
+                </p>    
+
+                <p>
+                    Our goal is to provide professional, affordable and reliable solutions.
+                </p>
+                <div>
+                </div>
+                <h2>Why Frameworks?</h2>
+                <h3>➔ We Understand Institutions.</h3>
+                <p>
+                       We know how schools and public colleges work - SGB approvals, tender processes,
+                       tight budgets and the need for a facility that lasts. We do it right the first time, with
+                       no hidden costs.
+                </p>
+                <h3>➔ We Build to Last, Not Just to Look Good.</h3>
+                <p>
+                       We don't just paint a court. We fix the drainage underneath, we use proper
+                       SABS-approved materials, and we build for heavy use in South African weather.
+                </p>
+                <h3>➔ We Develop More Than Facilities.</h3>
+                <p>  
+                       Every project creates local work. We hire locally where possible and train young
+                       people in basic construction and maintenance skills, so the facility can be
+                       maintained long after we leave.
+                </p>
+
+            </div>    
+        </div>
+
+    </section>
+
+
+    <!-- SERVICES -->
+
+    <section id="services">
+
+        <h2>Our Services</h2>
+           <p>
+            <p>➢<strong> Site clearing and earthworks</strong></p> 
+            <p>➢<strong> Professional levelling and drainage systems</strong></p> 
+            <p>➢<strong> Grass laying (natural and synthetic turf)</strong></p> 
+            <p>➢<strong> Hard courts construction and resurfacing</strong></p> 
+            <p>➢<strong> Fencing, lighting, and ablution facilities</strong></p> 
+            <p>➢<strong> Line marking, goalposts, and sports equipment supply</strong></p> 
+            <p>➢<strong> Ongoing maintenance plans for schools and colleges</strong></p> 
+            </p>
+        
+
+        <div class="services-container">
+
+            <div class="service" id="high-schools" tabindex="0">
+            
+                <h3>High Schools</h3>
+
+                <p>
+                    Full construction and rehabilitation of soccer fields, rugby fields, netball and basketball
+                    courts, athletics tracks, and cricket pitches.
+                </p>
+                <p>
+                    Includes drainage, fencing, goalposts, and line marking to SASFA and departmental standards.
+                </p>    
+
+            </div>
+
+
+            <div class="service" id="tvet-universities" tabindex="0">
+                
+                <h3>TVET Colleges & Universities</h3>
+
+                <p>
+                    Upgrading of sporting infrastructure at tertiary institutes for varsity sports.
+                </p>
+                <p>
+                    We build facilities that meet USSA and federation standards for hosting tournaments, while also being durable enough for daily use.
+                </p>    
+
+            </div>
+
+
+            <div class="service" id="rural-communities" tabindex="0">
+                
+                <h3>Rural Communities</h3>
+
+                <p>
+                    Our core passion.
+                </p>
+                <p>
+                    We develop community sports grounds, multi-use combi courts, and playground facilities that are low-maintenance, vandal-resistant, and built to last in harsh conditions.
+                </p>
+                <p>
+                    We work with municipalities, ward councilors and local SGBs to deliver projects that the whole community can enjoy. 
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+        <h2>Contact Us</h2>
+
+        <p><strong>
+            Get in touch with us using the form below.
+        </strong></p>
+
+        <form>
+
+            <label for="name" class="sr-only">Your Name</label>
+            <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Your Name"
+                required
+            >
+
+            <label for="email" class="sr-only">Your Email</label>
+            <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Your Email"
+                required
+            >
+
+            <label for="message" class="sr-only">Your Message</label>
+            <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Your Message"
+                required
+            ></textarea>
+
+            <button type="submit">
+                Send Message
+            </button>
+            <h3>Contact us for a free site inspection and quotation.</h3>
+
+            <p>   
+                ☎️ : 073 111 7404
+            </p>
+
+        </form>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Frameworks PTY Ltd. All Rights Reserved.
+            Design and created by justindeanmars@gmail.com
+        </p>
+
+    </footer>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Main navigation links smoothly move to the correct section.
+    document.querySelectorAll('nav a[href^="#"]').forEach(function (link) {
+        link.addEventListener("click", function (event) {
+            const targetId = this.getAttribute("href");
+            const target = document.querySelector(targetId);
+
+            if (target) {
+                event.preventDefault();
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
+                history.replaceState(null, "", targetId);
+            }
+
+            // Close the dropdown after an option is selected.
+            const dropdown = this.closest(".dropdown");
+            if (dropdown) {
+                dropdown.classList.remove("open");
+            }
+        });
+    });
+
+    // On touch/mobile devices, clicking About or Services first opens the
+    // dropdown; clicking it again follows the section link.
+    document.querySelectorAll(".dropdown-toggle").forEach(function (toggle) {
+        toggle.addEventListener("click", function (event) {
+            const dropdown = this.closest(".dropdown");
+
+            if (window.matchMedia("(hover: none)").matches) {
+                if (!dropdown.classList.contains("open")) {
+                    event.preventDefault();
+
+                    document.querySelectorAll(".dropdown.open").forEach(function (item) {
+                        if (item !== dropdown) item.classList.remove("open");
+                    });
+
+                    dropdown.classList.add("open");
+                }
+            }
+        });
+    });
+
+    // Close open dropdowns when clicking elsewhere.
+    document.addEventListener("click", function (event) {
+        if (!event.target.closest(".dropdown")) {
+            document.querySelectorAll(".dropdown.open").forEach(function (item) {
+                item.classList.remove("open");
+            });
+        }
+    });
+});
+</script>
+
+</body>
+
+</html>
+
+
